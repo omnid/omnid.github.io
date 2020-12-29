@@ -69,11 +69,15 @@
 <dd></dd></dl>
 
 <p>Call <code class="docutils literal notranslate"><span class="pre">cmakeme_doxygen()</span></code> to build doxygen documentation using the <code class="docutils literal notranslate"><span class="pre">cmakeme</span></code> Doxygen settings.</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_doxygen(</span><span class="nb">display_title</span><span class="nf">)</span><span class="w"></span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_doxygen(</span><span class="nb">filesOrDirs...</span><span class="nf">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">display_title</span></code></p>
-<p>The title of the project, to be displayed in the Doxygen documentation</p>
+<p><code class="docutils literal notranslate"><span class="pre">filesOrDirs</span></code>
+The files and directories to search for files to parse with doxygen.</p>
+<p>This uses the built-in doxygen_add_docs  <a class="reference external" href="https://cmake.org/cmake/help/latest/module/FindDoxygen.html">https://cmake.org/cmake/help/latest/module/FindDoxygen.html</a>
+under the hood, but changes some default settings and add an installation target. You can
+override any doxygen settings using the method specified therein. It also installs the documentation
+that is generated.</p>
 </div>
 </div>
 
