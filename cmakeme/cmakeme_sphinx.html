@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmakeme_sphinx &mdash; cmakeme 0.1.0</title>
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cmake.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="git_hash" href="git_hash.html" />
+    <link rel="prev" title="cmakeme_pack" href="cmakeme_pack.html" />
+  
+ 
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="git_hash.html" title="git_hash"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_pack.html" title="cmakeme_pack"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_sphinx</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cmakeme-sphinx">
+<h1>cmakeme_sphinx<a class="headerlink" href="#cmakeme-sphinx" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Generate sphinx documentation for .cmake files.
+This module is based off of the system the CMake project uses for
+generating its own documentation in CMake’s <code class="docutils literal notranslate"><span class="pre">Utilties/Sphinx</span></code> directory
+but can be customized/used by any cmake project.</p>
+<p>Use this module with <code class="docutils literal notranslate"><span class="pre">find_package(cmakeme)</span></code></p>
+</div></blockquote>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="cmake command">
+<dt id="command:cmakeme_sphinx_cmake">
+<code class="sig-name descname">cmakeme_sphinx_cmake</code><a class="headerlink" href="#command:cmakeme_sphinx_cmake" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Generate Sphinx documentation from the CMake Source files.</p>
+<blockquote>
+<div><div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_defaults(</span><span class="nb">doc_dir</span><span class="w"> </span><span class="nb">orgname</span><span class="w"> </span><span class="nb">org_url</span><span class="w"> </span><span class="nb">copyright</span><span class="nf">)</span><span class="w"></span>
+</pre></div>
+</div>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">doc_dir</span></code></dt><dd><p>Directory containing the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files.  These files can
+include a CMake module by using the directive:</p>
+<p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cmake-module::</span> <span class="pre">path_to_cmake_file</span></code></p>
+<p>within a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">orgname</span></code></dt><dd><p>The organization name, which is shown in the top-left corner of
+all documentation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">org_url</span></code></dt><dd><p>The url of the organization’s website.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">copyright</span></code></dt><dd><p>The name of the copyright holder.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The resulting documentation can be found in <code class="docutils literal notranslate"><span class="pre">${CMAKE_SOURCE_DIR}/build/html/cmake</span></code></p>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cmakeme_sphinx</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cmakeme_pack.html"
+                        title="previous chapter">cmakeme_pack</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="git_hash.html"
+                        title="next chapter">git_hash</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cmakeme_sphinx.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="git_hash.html" title="git_hash"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_pack.html" title="cmakeme_pack"
+             >previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_sphinx</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021 by Matthew Elwin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmakeme_defaults &mdash; cmakeme 0.1.0</title>
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cmake.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cmakeme_install" href="cmakeme_install.html" />
+    <link rel="prev" title="Contents" href="index.html" />
+  
+ 
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cmakeme_install.html" title="cmakeme_install"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Contents"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_defaults</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cmakeme-defaults">
+<h1>cmakeme_defaults<a class="headerlink" href="#cmakeme-defaults" title="Permalink to this headline">¶</a></h1>
+<p>Basic helper functions providing some useful generic cmake features</p>
+<p>Use this module with <code class="docutils literal notranslate"><span class="pre">find_package(cmakeme)</span></code></p>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="cmake command">
+<dt id="command:cmakeme_defaults">
+<code class="sig-name descname">cmakeme_defaults</code><a class="headerlink" href="#command:cmakeme_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up all of the default settings from cmakeme:
+1. Sets a default build type (single-configuration generators, and is user-overridable with <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=</span></code>)
+2. Disables in-source builds (prevent accidentally polluting the source space)
+3. Disables language extensions</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_defaults(</span><span class="nb">type</span><span class="nf">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">type</span></code>
+The build type to set as the default type.
+(Release, Debug, RelWithDebInfo, MinSizeRel, or “”)</p>
+</dd></dl>
+
+<dl class="cmake command">
+<dt id="command:cmakeme_set_default_build_type">
+<code class="sig-name descname">cmakeme_set_default_build_type</code><a class="headerlink" href="#command:cmakeme_set_default_build_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a default build type if not specified and store it in the cache.
+The default type specified the developer can still be overriden by a 
+user when they generate the build system.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_set_default_build_type(</span><span class="nb">type</span><span class="nf">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">type</span></code>
+The build type to set as the default type (Release, Debug, RelWithDebInfo, MinSizeRel, or “”)</p>
+</dd></dl>
+
+<dl class="cmake command">
+<dt id="command:cmakeme_disable_in_source_builds">
+<code class="sig-name descname">cmakeme_disable_in_source_builds</code><a class="headerlink" href="#command:cmakeme_disable_in_source_builds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable in-source builds of the project so that it is an error to
+configure a project from within the source directory. 
+This feature presents litering the source code directory with 
+CMake files; however, you will need to manually delete CMakeFiles
+and CMakeCache.txt should you try an in-source build.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_disable_in_source_builds()</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="cmake command">
+<dt id="command:cmakeme_no_lang_extensions">
+<code class="sig-name descname">cmakeme_no_lang_extensions</code><a class="headerlink" href="#command:cmakeme_no_lang_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable c/c++ language extensions globally</p>
+</dd></dl>
+
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmakeme_no_lang_extensions</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cmakeme_defaults</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Contents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cmakeme_install.html"
+                        title="next chapter">cmakeme_install</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cmakeme_defaults.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cmakeme_install.html" title="cmakeme_install"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Contents"
+             >previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_defaults</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021 by Matthew Elwin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmakeme_pack &mdash; cmakeme 0.1.0</title>
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cmake.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cmakeme_sphinx" href="cmakeme_sphinx.html" />
+    <link rel="prev" title="cmakeme_install" href="cmakeme_install.html" />
+  
+ 
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cmakeme_sphinx.html" title="cmakeme_sphinx"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_install.html" title="cmakeme_install"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_pack</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cmakeme-pack">
+<h1>cmakeme_pack<a class="headerlink" href="#cmakeme-pack" title="Permalink to this headline">¶</a></h1>
+<p>Simple wrapper around CPack. Create Debian, ArchLinux, and archives of the installation.
+Building the packages is triggered with <cite>cpack</cite> or the <cite>package</cite> target (e.g., <cite>make package</cite>)
+Essentially, this is a limited subset of cpack functionality in an easier-to-use form and
+added support for Archlinux.</p>
+<p>Find this module with <code class="docutils literal notranslate"><span class="pre">find_package(cmakeme)</span></code></p>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="cmake command">
+<dt id="command:cmakeme_package">
+<code class="sig-name descname">cmakeme_package</code><a class="headerlink" href="#command:cmakeme_package" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">cmakeme_package</span></code> function generates binary packages from a cmake installation. 
+The packages are built as a a result of the <cite>package</cite> target or running <cite>cpack</cite>
+Generates tar.gz, .zip, .deb, and archlinux packages.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_package(</span><span class="no">EMAIL</span><span class="w"> </span><span class="nb">email</span><span class="w"> </span>
+<span class="w">    </span><span class="p">[</span><span class="no">ARCH_64</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">ARCH_ANY</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="no">DEBIAN_DEPENDS</span><span class="w"> </span><span class="nb">d1...</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="no">DEBIAN_RECOMMENDS</span><span class="w"> </span><span class="nb">r1</span><span class="w"> </span><span class="p">...]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="no">ARCHLINUX_DEPENDS</span><span class="w"> </span><span class="nb">a1...</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="no">ARCHLINUX_RECOMMENDS</span><span class="w"> </span><span class="nb">a1...</span><span class="p">]</span><span class="nf">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">EMAIL</span> <span class="pre">email</span></code> 
+The email address of the maintainer</p>
+<p><code class="docutils literal notranslate"><span class="pre">ARCH_64</span> <span class="pre">|</span> <span class="pre">ARCH_ANY</span></code>
+Platform for the package either x64 Linux or platform-indepedent (e.g., source only package)</p>
+<p><code class="docutils literal notranslate"><span class="pre">DEBIAN_DEPENDS</span></code> 
+Dependencies for the debian package</p>
+<p><code class="docutils literal notranslate"><span class="pre">DEBIAN_RECOMMENDS</span></code> 
+Optional dependencies for debian package</p>
+<p><code class="docutils literal notranslate"><span class="pre">ARCHLINUX_DEPENDS</span></code> 
+Dependencies for the archlinux package</p>
+<p><code class="docutils literal notranslate"><span class="pre">ARCHLINUX_RECOMMENDS</span></code> 
+Optional dependencies for arch linux</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cmakeme_pack</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cmakeme_install.html"
+                        title="previous chapter">cmakeme_install</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cmakeme_sphinx.html"
+                        title="next chapter">cmakeme_sphinx</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cmakeme_pack.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cmakeme_sphinx.html" title="cmakeme_sphinx"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_install.html" title="cmakeme_install"
+             >previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_pack</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021 by Matthew Elwin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

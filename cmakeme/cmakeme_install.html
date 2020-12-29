@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmakeme_install &mdash; cmakeme 0.1.0</title>
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cmake.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cmakeme_pack" href="cmakeme_pack.html" />
+    <link rel="prev" title="cmakeme_defaults" href="cmakeme_defaults.html" />
+  
+ 
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cmakeme_pack.html" title="cmakeme_pack"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_defaults.html" title="cmakeme_defaults"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_install</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cmakeme-install">
+<h1>cmakeme_install<a class="headerlink" href="#cmakeme-install" title="Permalink to this headline">¶</a></h1>
+<p>Helper function for typical cmake installation scenarios.</p>
+<p>Use this module with <code class="docutils literal notranslate"><span class="pre">find_package(cmakeme)</span></code></p>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="cmake command">
+<dt id="command:cmakeme_install">
+<code class="sig-name descname">cmakeme_install</code><a class="headerlink" href="#command:cmakeme_install" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">cmakeme_install()</span></code> function installs the specified targets along
+with any include files in <code class="docutils literal notranslate"><span class="pre">INTERFACE_INCLUDE_DIRECTORIES</span></code> or source files 
+in <code class="docutils literal notranslate"><span class="pre">INTERFACE_SOURCES</span></code>. If the target is a library it will be setup to be
+imported from other cmake files.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmakeme_install(</span><span class="no">TARGETS</span><span class="w"> </span><span class="nb">targets...</span><span class="w"> </span>
+<span class="w">          </span><span class="p">[</span><span class="no">NAMESPACE</span><span class="w"> </span><span class="nb">ns</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[</span><span class="no">ARCH_INDEPENDENT</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[</span><span class="no">PACKAGE_NAME</span><span class="w"> </span><span class="nb">name</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[</span><span class="no">DEPENDS</span><span class="w"> </span><span class="nb">deps..</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="nf">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TARGETS</span> <span class="pre">targets</span></code> 
+The targets that should be installed.
+This is the only option necessary if the targets do not need to be found by other cmake modules.
+If target.bin is also defined as a target it will be installed as well.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NAMESPACE</span> <span class="pre">ns</span></code> 
+Namespace for name.
+If not specified the targets will not be exported.
+Do not include the <cite>::</cite> after the namespace.  
+Link against the configured targets by passing <cite>ns::target</cite> to <cite>target_link_libraries</cite></p>
+<p><code class="docutils literal notranslate"><span class="pre">ARCH_INDEPENDENT</span></code>
+Specify for an architecture-independent library, such as a header-only library.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PACKAGE_NAME</span> <span class="pre">name</span></code> 
+The name of the package, as used by <cite>find_package</cite>. So the package will be imported via <cite>find_package(name)</cite> defaults to the value of <cite>ns</cite></p>
+<p><code class="docutils literal notranslate"><span class="pre">DEPENDS</span> <span class="pre">deps</span></code>:w
+The dependencies of the listed targets that should be found when <cite>find_package(name)</cite> is called.
+In other words, imported dependencies that are required for using the target</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">target_include_directories(target</span> <span class="pre">INTERFACE</span> <span class="pre">$&lt;BUILD_INTERFACE:directory&gt;)</span></code> to add include directories 
+and <code class="docutils literal notranslate"><span class="pre">target_sources(target</span> <span class="pre">INTERFACE</span> <span class="pre">$&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/source1&gt;...</span> <span class="pre">)</span></code> to add source files.
+The <code class="docutils literal notranslate"><span class="pre">$&lt;BUILD_INTERFACE:&gt;</span></code> generator expression only adds the items in it during build time.
+At install time, the location of the files moves.
+<code class="docutils literal notranslate"><span class="pre">cmakeme_install</span></code> will add the proper paths to the <code class="docutils literal notranslate"><span class="pre">$&lt;INSTALL_INTERFACE:&gt;</span></code> for use at installation time.</p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cmakeme_install</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cmakeme_defaults.html"
+                        title="previous chapter">cmakeme_defaults</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cmakeme_pack.html"
+                        title="next chapter">cmakeme_pack</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cmakeme_install.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cmakeme_pack.html" title="cmakeme_pack"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cmakeme_defaults.html" title="cmakeme_defaults"
+             >previous</a> |</li>
+  <li>
+    <img src="_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://omnid.github.io/">Omnid</a> &#187;
+  </li>
+  <li>
+    <a href="index.html">cmakeme</a> &#187;
+  </li>
+
+        <li class="nav-item nav-item-this"><a href="">cmakeme_install</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021 by Matthew Elwin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>
