@@ -1,0 +1,61 @@
+repositories:
+  cmakeme:
+    type: git
+    url: git@github.com:omnid/cmakeme.git
+    version: ros2
+  launch_remote:
+    type: git
+    url: git@github.com:NU-MSR/launch_remote.git
+    version: main
+  nuhal:
+    type: git
+    url: git@github.com:omnid/nuhal.git
+    version: ros2
+  omnid:
+    type: git
+    url: git@github.com:omnid/omnid.git
+    version: ros2
+  omnid_control:
+    type: git
+    url: git@github.com:omnid/omnid_control.git
+    version: ros2
+  omnid_core:
+    type: git
+    url: git@github.com:omnid/omnid_core.git
+    version: ros2
+  omnid_delta_state:
+    type: git
+    url: git@github.com:omnid/omnid_delta_state.git
+    version: ros2
+  omnid_description:
+    type: git
+    url: git@github.com:omnid/omnid_description.git
+    version: ros2
+  omnid_firmware:
+    type: git
+    url: git@github.com:omnid/omnid_firmware.git
+    version: ros2
+  omnid_lib:
+    type: git
+    url: git@github.com:omnid/omnid_lib.git
+    version: ros2
+  omnid_setup:
+    type: git
+    url: git@github.com:omnid/omnid_setup.git
+    version: ros2
+  omnid_tools:
+    type: git
+    url: git@github.com:omnid/omnid_tools.git
+    version: ros2
+  rosnu:
+    type: git
+    url: git@github.com:omnid/rosnu.git
+    version: ros2
+  tiva_cmake:
+    type: git
+    url: git@github.com:omnid/tiva_cmake.git
+    version: ros2
+  tivaboot:
+    type: git
+    url: git@github.com:omnid/tivaboot.git
+    version: master
